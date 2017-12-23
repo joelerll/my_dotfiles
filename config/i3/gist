@@ -1,0 +1,50 @@
+#for_window [class="URxvt" instance="cmus"] move scratchpad
+#exec --no-startup-id urxvt -name urxvt_scratchpad -geometry 130x40  #title="YouTube - Nightly"
+#for_window [instance="urxvt_scratchpad"] floating enable
+#for_window [instance="urxvt_scratchpad"] move scratchpad
+#for_window [instance="urxvt_scratchpad"] floating enable; move scratchpad; scratchpad show; move position 865px 512px; move scratchpad
+bindsym $mod+Shift+minus move scratchpad
+for_window [instance="scratchpad"] move window to scratchpad, scratchpad show
+
+#for_window [title="Rename File"] floating enable; move position 865px 512px
+#for_window [class="Spacefmf" instance="$file_manager"] floating enable, border normal,  move window to scratchpad
+#bindsym $mod+p exec $file_manager -n && sleep .1 && xdotool set_window --class Spacefmf $(xdotool getwindowfocus), scratchpad show 
+#for_window [class="Atom|X-terminal-emulator|Lxterminal|Gpick|Sublime_text|Code|LightTable|Gedit|konsole|Remarkable|Anki|Brackets|Firefox"] border pixel 1
+
+#tmux
+# move x clipboard into tmux paste buffer
+#bind p run "tmux set-buffer \"$(xclip -o)\"; tmux paste-buffer"
+# move tmux copy buffer into x clipboard
+#bind y run "tmux save-buffer - | xclip -i"
+#bind y run -b "tmux show-buffer | xclip -i"
+#bind -t vi-copy y copy-pipe "xclip"
+#bind-key -t vi-copy 'v' begin-selection
+#bind-key -t vi-copy 'y' copy-selection
+#bind -t vi-copy c run "tmux send-keys Enter; tmux show-buffer | perl -pe 's/\n//' | xclip -i -selection clipboard;"
+#bind-key -T copy-mode-vi v send-keys -X begin-selection
+#bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+# COPY & PASTE
+
+# Copy tmux buffer to X clipboard
+# run -b runs a shell command in background
+# bind C-w run -b "tmux show-buffer | xclip -selection clipboard -i"
+bind C-w run -b "tmux show-buffer | xclip -i"
+
+# Paste from X clipboard into tmux; also replace newline characters with
+# space characters when pasting
+bind C-y run -b "exec </dev/null; xclip -o | awk 1 ORS=' ' | tmux load-buffer - ; tmux paste-buffer"
+# Same as `C-y' binding except that the newline chars are not replaced with space
+bind Y run -b "exec </dev/null; xclip -o | tmux load-buffer - ; tmux paste-buffer"
+setq x-select-enable-clipboard t 
+      x-select-enable-primary t)
+
+
+
+tmux list-keys
+    lists out every bound key and the tmux command it runs
+tmux list-commands
+    lists out every tmux command and its arguments
+tmux info
+    lists out every session, window, pane, its pid, etc. 
+tmux source-file ~/.tmux.conf
+    reloads the current tmux configuration (based on a default tmux config) 

@@ -1,2 +1,377 @@
-# mi i config file
-sdfsd
+# Credits:     joelerll
+# Description: i3wm config file 
+# Requires:    i3wm, i3gaps, firefox, chromium-browser, min, urxvt, termite, rofi, dunst,network-manager, gksu, pactl, feh ,compton ,xbacklight ,xrandr ,xclip, imagemagick, py3status, fontawesome
+# Usage:       file in ~/.config/i3/config
+#
+
+
+# ================== #
+# Configuraciones globales
+# ================== #
+workspace_layout tabbed
+hide_edge_borders both
+workspace_auto_back_and_forth yes
+focus_follows_mouse no
+smart_gaps on
+
+# ================== #
+# variables globales
+# ================== #
+set $monitor VGA1 
+set $laptop LVDS1
+set $hdmi HDMI1
+set $mod Mod4
+
+# colors
+set $bg-color 	        	 	#173e43
+set $inactive-bg-color  	 	#173e43
+set $text-color				    #fae594
+set $inactive-text-color 		#dddfd4
+set $urgent-bg-color	 		#3fb0ac
+
+# ================== #
+# fonts config
+# ================== #
+set $font fontawesome
+set $font_size 9
+font pango: $font  $font_size
+
+set $firefox ~/extras/firefox-nightly/firefox
+set $chrome chromium-browser
+set $scratchpad_browser_class Min
+set $scratchpad_browser min
+set $terminal_scratchpad urxvt -name scratchpad
+set $file_manager Pcmanfm
+
+# ================== #
+# rofi config
+# ================== #
+bindsym $mod+d exec rofi -show run -lines 5 -eh 2 -width 100 -padding 200 -opacity "50"  -font "Hack 18"
+bindsym $mod+shift+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -dmenu -lines 5 -eh 2 -width 100 -padding  200 -opacity "50" -font "Hack 18"'
+
+# ================= #
+# shortcuts
+# ================= #
+
+# aplicaciones
+bindsym $mod+Return exec termite -c ~/.config/termite/config
+bindsym $mod + shift + f exec i3-msg "exec firefox-nightly"
+
+
+# Volume control
+bindsym $mod+F10 exec pactl set-sink-volume 0 +5%
+bindsym $mod+F9 exec pactl set-sink-volume 0 -5%
+bindsym $mod+F11 exec pactl set-sink-mute 0 toggle
+
+# Sreen brightness controls
+bindsym $mod+F3 exec xbacklight -inc 2 #increase screen brightness
+bindsym $mod+F2 exec xbacklight -dec 2 #decrease screen brightness
+
+# Media player controls
+bindsym $mod+shift+F7  exec playerctl play
+bindsym $mod+shift+p exec playerctl pause
+bindsym $mod+shift+F8 exec playerctl next
+bindsym $mod+shift+F6 exec playerctl previous
+
+# reload nm-applet
+bindsym $mod+Shift+n exec gksu  service network-manager restart
+
+# key indicators
+#bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
+#bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
+
+# Scratchapas xprop
+bindsym $mod+minus [class="$scratchpad_browser_class"] scratchpad show resize set 800 px 600 px 
+bindsym $mod+Control+minus [instance="scratchpad"] scratchpad show 
+bindsym $mod+p [class="$file_manager"] scratchpad show 
+
+# Pulse Audio controls pavucontrol
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+bindsym $mod+b workspace back_and_forth
+bindsym $mod+q kill
+bindsym $mod+Control+Shift+k focus parent, focus parent, focus parent, focus parent, focus parent, focus parent, focus parent, focus parent, focus parent, focus parent, kill #kill al the window on a specific workspace
+
+# focus_window
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+#bindsym $mod+Left focus left
+#bindsym $mod+Down focus down
+#bindsym $mod+Up focus up
+#bindsym $mod+Right focus right
+
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+#bindsym $mod+Shift+Left move left
+#bindsym $mod+Shift+Down move down
+#bindsym $mod+Shift+Up move up
+#bindsym $mod+Shift+Right move right
+
+#bindsym $mod+g split h
+bindsym $mod+Control+v split v
+
+bindsym $mod+f fullscreen toggle
+
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+bindsym $mod+Shift+space floating toggle
+
+bindsym $mod+space focus mode_toggle
+
+bindsym $mod+a focus parent
+#bindsym $mod+d focus child
+
+floating_modifier $mod
+
+bindsym $mod+u border none
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+
+# ================= #
+# workspaces
+# ================= #
+set $workspace1 "1: "
+set $workspace2 "2: "
+set $workspace3 "3: "
+set $workspace4 "4: "
+set $workspace5 "5: "
+set $workspace6 "6: "
+set $workspace7 "7: sistemas distribuidos"
+set $workspace8 "8: seguridad informacion"
+set $workspace9 "9: ingenieria software"
+set $workspace10 "10: interaccion hombre computador"
+
+bindsym $mod+1 workspace $workspace1
+bindsym $mod+2 workspace $workspace2
+bindsym $mod+3 workspace $workspace3
+bindsym $mod+4 workspace $workspace4
+bindsym $mod+5 workspace $workspace5
+bindsym $mod+6 workspace $workspace6
+bindsym $mod+7 workspace $workspace7
+bindsym $mod+8 workspace $workspace8
+bindsym $mod+9 workspace $workspace9
+bindsym $mod+0 workspace $workspace10
+
+bindsym $mod+Shift+1 move container to workspace $workspace1
+bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace $workspace3
+bindsym $mod+Shift+4 move container to workspace $workspace4
+bindsym $mod+Shift+5 move container to workspace $workspace5
+bindsym $mod+Shift+6 move container to workspace $workspace6
+bindsym $mod+Shift+7 move container to workspace $workspace7
+bindsym $mod+Shift+8 move container to workspace $workspace8
+bindsym $mod+Shift+9 move container to workspace $workspace9
+bindsym $mod+Shift+0 move container to workspace $workspace10
+
+bindsym $mod+m move workspace to output left
+
+
+# ================= #
+# aplicacion to workspaces
+# ================= #
+#assign [class ="QuiteRss"] $workspace9
+
+# ================= #
+# windows
+# ================= #
+for_window [class="^.*"] border pixel 0
+for_window [window_role="pop-up"] floating enable, move absolute center
+for_window [window_role="gimp-toolbox"] floating enable
+for_window [class="Wicd-client.py|Lxappearance|Arandr|^File-roller$|Gpick|Tk|sun-awt-X11-XWindowPeer"] floating enable
+
+# scratchpads
+for_window [instance="scratchpad"] resize set 500 px 500 px move window to scratchpad
+for_window [class="$scratchpad_browser_class"] move window to scratchpad
+for_window [class="$file_manager"] move window to scratchpad
+
+# ================= #
+# autostart apps
+# ================= #
+#exec --no-startup-id i3-msg 'workspace $workspace10;exec  remarkable /home/joelerll/Documents/read.md;; workspace $workspace1'
+
+
+# ================= #
+# Default init
+# ================= #
+
+# scratchpads
+exec --no-startup-id $scratchpad_browser
+exec --no-startup-id $terminal_scratchpad
+exec --no-startup-id $file_manager
+
+
+#Walpaper
+exec_always feh --bg-scale ~/.wallpapers/GayMostrón.png
+
+# bateria notificaciones
+exec ~/.config/i3/i3scripts/battery & disown
+
+#tranparencia
+exec_always compton -f
+exec--no-startup-id nm-applet
+
+# MONITORS DEFAULT BRIGTHNESS
+exec_always xbacklight  -set 10
+exec_always xrandr --output $monitor --brightness 1
+
+# dunst reload
+exec_always ~/.config/i3/i3scripts/reload_dunst
+
+
+# ================= #
+# modes
+# ================= #
+
+set $browser_mode browser= firefox: [d]efault | [p]pl
+bindsym $mod+shift+b mode $browser_mode
+#$firefox
+#$chrome
+mode "$browser_mode" {
+    bindsym d exec $firefox -P 'default', mode "default"
+    bindsym p exec $firefox -P 'ppl', mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode ""
+mode "" {
+	set $NUM 2
+    bindsym h resize shrink width $NUM px or $NUM ppt
+    bindsym j resize grow height $NUM px or $NUM ppt
+    bindsym k resize shrink height $NUM px or $NUM ppt
+    bindsym l resize grow width $NUM px or $NUM ppt
+
+    bindsym Left resize shrink width $NUM px or $NUM ppt
+    bindsym Down resize grow height $NUM px or $NUM ppt
+    bindsym Up resize shrink height $NUM px or $NUM ppt
+    bindsym Right resize grow width $NUM px or $NUMq ppt
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+
+set $open_proyect proyect= Open Proyect: [P]pl | [D]otfiles | [F]undamuertos
+bindsym $mod+o mode $open_proyect
+set $editor_bin_path ~/extras/sublime_text_3/sublime_text
+set $ppl_path ~/pasantias/espol-ppl
+set $dotfiles_path ~/dotfiles 
+set $fundamuertos_path ~/proyects/fundamuertos
+mode "$open_proyect" {
+    bindsym p exec $editor_bin_path $ppl_path, mode "default"
+    bindsym d exec $editor_bin_path $dotfiles_path, mode "default"
+    bindsym f exec $editor_bin_path $fundamuertos_path, mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+
+set $power_mode power= p :   |  r :   |  e :   | b :  | x: sleep | h: hibernate | f: h & x
+bindsym $mod+Shift+q mode "$power_mode"
+mode "$power_mode" {
+	bindsym p exec systemctl poweroff
+	bindsym r exec systemctl reboot
+    bindsym h exec gksu systemctl hibernate, mode "default"
+    bindsym f exec gksu systemctl hybrid-sleep, mode "default"
+	bindsym x exec systemctl suspend, mode "default"
+	bindsym e exec i3-msg exit
+	bindsym b exec i3lock -i $HOME/.wallpapers/tengen.png , mode "default"
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+
+set $screenshot_mode capture= [r]egion | [d]esktop | [w]indow
+bindsym $mod+Shift+s mode "$screenshot_mode"
+mode "$screenshot_mode" {
+	bindsym --release r exec --no-startup-id "file=$(cd ~/.screenshots && ls -1 | wc -l) && import $HOME/.screenshots/screenshot-$(($file+1))-region-$(date +%H).png && sleep 1 && xclip -selection clipboard -t image/png -i ~/.screenshots/screenshot-$(($file+1))-region-$(date +%H).png", mode "default"
+
+	bindsym --release d exec --no-startup-id "file=$(cd ~/.screenshots && ls -1 | wc -l) && import -window root $HOME/.screenshots/screenshot-$(($file+1))-desktop-$(date +%H).png && sleep 1 && xclip -selection clipboard -t image/png -i ~/.screenshots/screenshot-$(($file+1))-desktop-$(date +%H).png", mode "default"
+
+	bindsym --release w exec --no-startup-id "file=$(cd ~/.screenshots && ls -1 | wc -l) && import -screen $HOME/.screenshots/screenshot-$(($file+1))-window-$(date +%H).png && sleep 1 && xclip -selection clipboard -t image/png -i ~/.screenshots/screenshot-$(($file+1))-window-$(date +%H).png", mode "default"
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+set $multimonitor_mode  monitores= [d]ual | [l]eft |  [r]ight | d[u]al | le[f]t | r[i]ght |[e]xit |mod+m
+bindsym $mod+Shift+m  mode "$multimonitor_mode"
+mode "$multimonitor_mode" {
+	bindsym d exec xrandr --output $monitor --auto --same-as $laptop, mode "default"
+	bindsym l exec xrandr --output $monitor --auto --left-of $laptop, mode "default"
+	bindsym r exec xrandr --output $monitor --auto --right-of $laptop, mode "default"
+	bindsym e exec xrandr --output $laptop --auto --output  $monitor --off, mode "default"
+	bindsym u exec xrandr --output $hdmi --auto --same-as $laptop, mode "default"
+	bindsym f exec xrandr --output $hdmi --auto --left-of $laptop, mode "default"
+	bindsym i exec xrandr --output $hdmi  --auto --right-of $laptop, mode "default"
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+mode "$mode_gaps" {
+    bindsym o      mode "$mode_gaps_outer"
+    bindsym i      mode "$mode_gaps_inner"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+mode "$mode_gaps_inner" {
+    bindsym plus  gaps inner current plus 5
+    bindsym minus gaps inner current minus 5
+    bindsym 0     gaps inner current set 0
+
+    bindsym Shift+plus  gaps inner all plus 5
+    bindsym Shift+minus gaps inner all minus 5
+    bindsym Shift+0     gaps inner all set 0
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+    bindsym plus  gaps outer current plus 5
+    bindsym minus gaps outer current minus 5
+    bindsym 0     gaps outer current set 0
+
+    bindsym Shift+plus  gaps outer all plus 5
+    bindsym Shift+minus gaps outer all minus 5
+    bindsym Shift+0     gaps outer all set 0
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+
+# ================= #
+# bar config
+# ================= #
+bar {
+    #font pango:  $font $font_size
+    #output $laptop
+	#tray_output $laptop
+	position top
+	separator_symbol "|"
+    status_command py3status --include ~/.config/i3/py3status -c ~/.config/i3/i3status.conf
+	colors {
+		separator #fae594
+	}
+}
+
+### TODO
+# pcmanfm error scratchpad
+# scratchpad ranger
+# bajar brillo hdmi o vga
+# detectar un monitor y colocarlo a la izquierda automatico
+# i3 blockear con background image
+# mpd music

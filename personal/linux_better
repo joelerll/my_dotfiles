@@ -1,0 +1,401 @@
+set visudo editor, https://unix.stackexchange.com/questions/4408/how-to-set-visudo-to-use-a-different-editor-than-the-default-on-fedora
+https://unix.stackexchange.com/questions/18830/how-to-run-a-specific-program-as-root-without-a-password-promptsnn
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/sect-managing_services_with_systemd-power
+https://wiki.archlinux.org/index.php/Allow_users_to_shutdown
+https://www.howtogeek.com/121241/how-to-make-your-linux-pc-wake-from-sleep-automatically/
+
+https://wiki.archlinux.org/index.php/USB_flash_installation_media_(Espa%C3%B1ol)
+https://wiki.archlinux.org/index.php/USB_flash_installation_media
+
+# extras folder
+sera .extras
+android-strudion
+anki
+eclipse
+arduino
+firefox-nigthly
+genymotion
+gisto
+idea
+lua
+rust
+scala
+go
+sublime3
+vectr
+
+netbeand
+mongodb
+popcorntime
+stremio
+
+# Music
+mpd
+mpd-client
+ncmpcpp
+
+# music manager todo
+
+# Best dotfiles
+https://github.com/wsdjeg/DotFiles
+https://github.com/PotatoesMaster/dotfiles
+http://twily.info/scripts/ambient#view
+https://github.com/xero/dotfiles
+
+# Best pages
+http://dotshare.it/
+
+# nuevos
+save tabs from firefox in file
+nix
+progress
+ntfy, notifications
+bats
+borg
+terminals-are-sexy
+awesome-shell
+the art of commandline
+http://twily.info/scripts/ambient#view
+boom
+db
+sman
+sheet
+
+## folders default
+.screenshots
+documents
+downloads
+
+# mps-youtube
+###playlist
+pl
+save
+
+http://colabug.com/1428099.html
+
+## dotfiles folder
+1. definir los archivos y carpetas de dotfiles en un archivo yml y leerlos
+2. 
+
+
+## dotfiles
+https://hackernoon.com/learn-how-to-manage-dotfiles-b8b62c6c5491
+http://blog.smalleycreative.com/tutorials/using-git-and-github-to-manage-your-dotfiles/
+https://taihen.org/managing-dotfiles-with-gnu-stow/
+
+# features instalacion script
+soporte arch y ubuntu
+renombrado de carpeta home
+instalacion de fonts
+instalacion de java, sublime, atom, code, eclipse, jdownloader y otros de paginas
+instalacion de rvnm nvm
+
+
+https://github.com/PotatoesMaster/dotfiles
+https://github.com/mohlerm/dotfiles
+https://github.com/msjche/dotfiles_desktop
+
+https://github.com/pimutils/khal
+
+## qutebrower
+apt-get install python3-lxml python-tox python3-pyqt5 python3-pyqt5.qtwebkit python3-pyqt5.qtquick python3-sip python3-jinja2 python3-pygments python3-yaml python3-pyqt5.qtsql libqt5sql5-sqlite
+python3-pyqt5.qtopengl python3-pyqt5.qtopengl
+.deb de qutebrowser pagina
+
+xdotool getmouselocation
+## anki instalacion
+http://twily.info/
+
+notify-send 'Hello world!' 'This is an example notification.' --icon=dialog-information
+## tmux
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+https://github.com/tony/tmuxp
+tmp , plugin manager
+tmuxifier, session manager
+tmux-resurrect, session manaegr
+
+tw
+https://www.slant.co/options/1287/~xmonad-review
+spectrwm
+
+i3
+awesome
+sudo apt-get install scrot
+bspwm
+wtftw
+xmonad
+howm
+catwm
+w3m-img
+
+mps-youtube, recommendation youtube
+ffmpegthumbnailer
+byobu
+
+## i3status dependencies
+pydbus
+
+acpi
+compton
+libnotify
+py3status
+sudo apt-get install libgtk2.0-dev
+libgtk-3-dev
+
+#### TERMITE
+sudo apt install -y g++ libgtk-3-dev gtk-doc-tools gnutls-bin valac intltool libpcre2-dev libglib3.0-cil-dev libgnutls28-dev libgirepository1.0-dev libxml2-utils gperf build-essential
+git clone https://github.com/thestinger/vte-ng.git
+echo export LIBRARY_PATH="/usr/include/gtk-3.0:$LIBRARY_PATH"
+cd vte-ng && ./autogen.sh && make && sudo make install 
+cd ..
+git clone --recursive https://github.com/thestinger/termite.git
+cd termite && make && sudo make install
+sudo ldconfig
+sudo mkdir -p /lib/terminfo/x
+sudo ln -s /usr/local/share/terminfo/x/xterm-termite /lib/terminfo/x/xterm-termite
+### TERMITE
+
+## arch theme
+sudo add-apt-repository ppa:noobslab/themes
+sudo apt-get update
+sudo apt-get install arc-theme
+sudo apt-add-repository ppa:tista/adapta -y
+sudo apt-get update
+sudo apt-get install adapta-gtk-theme
+
+sudo add-apt-repository ppa:numix/ppa
+sudo apt-get update
+sudo apt-get install numix-gtk-theme numix-icon-theme-circle
+
+i3, save session
+cambiar nombres de workspaces por nombres de materias
+iconos:
+linux
+terminal
+editor
+navegador (firefox nomas), firefox showrcuts
+folders
+musica
+
+materias
+inteligencia
+seguridad de la informacion
+interaccion hombre maquina
+ing. software 1
+sistemas distribuidos
+emprendimieto
+
+i3bar inferior de tareas u otras cosas importantes
+
+pomodoro y taskwarrior linux
+
+wallpapers varios
+
+i3 recordatorio con ventanitas de mensajes que no recuerdo como se llaman
+
+linux time management
+
+anki i3 bar session recordatorio
+
+paginas importantes
+medium
+reddit unixporn
+proyect euler
+github
+hackerrank
+hackerbog
+geeks for geeks
+
+guardar backub de todos los marcadores, subirlo a drive, borrar todos los marcadores 
+
+icono de las aplicacoines que mas consuman
+guardar sesiones termianl
+i3 gaps
+mejor bar con colores y hacerlo desde cero
+cambiar colores por otros mejores
+cerrar todas las ventanas abiertas con un shotcut
+mejores combinacion de  botones para los existentes
+mas de 10 workspaces
+
+
+dotfiles manager
+pywal
+yank
+termite
+arch
+i3wm better
+bar better
+ranger
+vim 
+tmux
+emacs
+mpd, libmpdclient
+rofi
+i3lock
+i3gabs
+polybar
+
+
+I'm happy with mutt, weechat, newsbeuter, zathura, vim, ranger with urxvt and the new qutebrowser, dzen2 and conky for the bar
+
+polybar sudo apt-get install libcairo2-dev libxcb-xkb* xcb-proto python-xcbgen jsoncpp
+
+## i3gaps
+git clone https://www.github.com/Airblader/i3 i3-gaps
+libev-dev
+libstartup-notification-1.0
+sudo apt install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf
+cd /tmp
+git clone https://github.com/Airblader/xcb-util-xrm
+cd xcb-util-xrm
+git submodule update --init
+./autogen.sh --prefix=/usr
+make
+sudo make install
+cd /some/directory
+git clone https://www.github.com/Airblader/i3 i3-gaps
+cd i3-gaps
+rm -rf build
+mkdir build
+cd build
+../configure --prefix=/usr --sysconfdir=/etc
+make
+sudo make install
+xutils-dev
+
+make -j8
+
+
+
+http://twily.info/firefox/stylish/firefox-css#
+
+firefox_Css
+
+firefox styles academico
+firefox styles sidweb2
+
+qutebrowser
+## EDITORES
+tree
+file finder
+find words en todos los archivos proyecto
+proyect manager
+autocomplete
+pestanas
+cambio entre pestanas
+abrir terminal
+copiar codigo de terminal
+snippets
+emmet
+json validation
+editorconfig
+git files changed
+ver cuales archivos cambian en git
+git ignore files que no se vean
+merge conflict
+todo-show
+buscar y reemplazar
+ctags
+goto definition
+rest client
+color picker
+color css
+mover una linea con flechas
+indentacion inteligente
+
+
+borrar entre parentesis
+control+z
+undo control+z
+borrar linea
+copiar linea
+insertar nueva linea arriba, abajo
+borrar linea arrriba, abajo
+
+navegacion
+crear archivos
+crear carpetas
+
+
+
+	vim
+
+	emacs
+		evil mode
+		org-mode
+		engine-mode
+	spacemacs
+
+	atom
+
+	vscode
+
+	sublime
+
+## archivo instalacion de programas atomatico, listar los programas que mas uso
+
+## dotfiles
+
+## fonts
+
+## themas
+
+## telegram bot, ideas?
+
+## navegador
+guardar paginas abiertas por proyecto
+guardar firefox estados de pestanas
+* firefox-night
+
+
+## Musica
+* listar las bandas que escucho
+* listar las musicas que escucho
+
+## File manager
+bookmarks
+preview, musica, archivos, descomprimir, tabs foders, open usb
+* ranger
+* vimf
+* pcmanfm
+
+## terminal
+sessiones de proyectos
+*urxvt
+
+
+## tmus
+
+## notificaciones
+
+## status bar
+* conecatado a vpn
+* bateria
+* temperatura
+* conectado red wifi
+* volumen
+* cpu uso
+
+
+## video player terminal
+
+## task manager terminal
+
+
+## window manager
+i3wm
+awesome
+wtftw
+xmonad
+
+
+
+## chat terminal
+
+
+
+
+
+
+### animacionb
+synfig studio

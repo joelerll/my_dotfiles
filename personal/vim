@@ -1,0 +1,190 @@
+https://stackoverflow.com/questions/41084565/moving-multiple-lines-in-vim-visual-mode
+
+## Pluguins escenciales
+FzF, no ctrp : :Lines, :BLines, :Snippets
+https://www.youtube.com/watch?v=aXPQTesFdTI
+
+# status bar, tabline, titlestring
+https://stackoverflow.com/questions/5375240/a-more-useful-statusline-in-vim
+https://github.com/powerline/powerline
+
+https://github.com/Valloric/YouCompleteMe
+https://github.com/SirVer/ultisnips
+Bookmarks
+
+https://www.youtube.com/watch?v=1QD3u6NC5KU
+https://www.youtube.com/watch?v=5-Uaeps421ws
+
+http://vimcasts.org/
+http://vimcolors.com/
+https://github.com/powerline/fonts
+
+https://github.com/mhinz/vim-galore
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+https://github.com/junegunn/vim-plug
+https://github.com/airblade/vim-gitgutter # vim file changes
+nerdtreee
+vim airline
+vim snippets
+
+## vim spell
+z=
+http://vim.wikia.com/wiki/Dictionary_completions
+https://www.linux.com/learn/using-spell-checking-vim
+https://robots.thoughtbot.com/vim-spell-checking
+
+
+## bookmarks
+http://vim.wikia.com/wiki/Using_marks
+
+## skipt to function definition
+
+## ctrlp
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+## guardar sessiones
+:mksession ~/mysession.vim
+vim -S ~/mysession.vim
+:source ~/mysession.vim
+
+## reaload .vimrc
+:so ~/.vimrc
+:source %
+
+## buscar archivo
+:find archivo
+
+## listar archivos abierto
+:ls
+
+## moverte entre los archivos, guardados en buffer
+:b M
+:bn
+:bp
+
+## mover lineas in visual mode
+http://vim.wikia.com/wiki/Moving_lines_up_or_down
+
+## comentar lineas
+crtl + v (visual mode)
+up, key, down
+Shift + I
+inset text you want
+ESC
+
+## vim find in line
+f + {
+
+## delete
+dd
+df.
+7dd
+
+## copy
+-15,-14co.
+
+:y%+
+"+y
+
+https://stackoverflow.com/questions/1620018/copy-all-the-lines-to-clipboard
+
+## moving in file
+H
+M
+L
+
+## uncoment block
+https://stackoverflow.com/questions/1676632/whats-a-quick-way-to-comment-uncomment-lines-in-vim
+ESC
+crtl + v
+up, down
+
+## search
+http://vim.wikia.com/wiki/Searching
+/ , buscar
+:noh
+
+## modos commadilne
+map
+imap
+vmap
+noremap
+nnoremap
+ino
+
+## find in all filess
+
+
+## buffers split
+:vs
+:ps
+
+## windoes
+shift + w + (l,h,j,k)
+contro + w + v,p,sn
+contol + w+ c
+control + w + o
+
+## indent lines
+> 
+5 > > 
+https://stackoverflow.com/questions/235839/indent-multiple-lines-quickly-in-vi
+
+## autoclose parentesis
+https://stackoverflow.com/questions/21316727/automatic-closing-brackets-for-vim
+http://vim.wikia.com/wiki/Making_Parenthesis_And_Brackets_Handling_Easier
+
+## autclose tabs
+
+## edit tags html inline
+
+## edit 
+
+## tabs
+http://vim.wikia.com/wiki/Using_tab_pages
+
+## buffers
+http://vim.wikia.com/wiki/Vim_buffer_FAQ
+
+## map
+http://vim.wikia.com/wiki/Mapping_keys_in_Vim_-_Tutorial_(Part_2)
+
+
+## macros
+http://vim.wikia.com/wiki/Macros
+
+
+set tabstop=2
+
+
+"set clipboard=unnamedplus
+" set clipboard=unnamed set clipboard=unnamedplus set clipboard=unnamed,unnamedplus https://github.com/svermeulen/vim-easyclip#clipboard-setting
+" set wildignore+=**/node_modules/** set wildignore=*.pyc,*/env,*/_pycache_
+set number
+
+" tab autocomplte para el archivo
+set path+=**
+
+" muestra todos los archivos cuando colocamos tab
+set wildmenu
+
+" Crear los ctags (instalar exuberant-ctags)
+command! MakeTags !ctags -R .
+" USO:
+" :set tags?
+" ^] jump to tag under cursor
+" g^] for ambigous tags
+" ^t to jump bask up the tag stack
+
+" autocomplete ins-complete
+" ctrl + n
+" ^y
+" ^x^n for just file
+" ^x^f for filenames
+" ^x^] for tags only
+" ^n and ^p para moverme
+
+set nocompatible              " be iMproved, required
+filetype off                  " required:w

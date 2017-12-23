@@ -1,15 +1,27 @@
 #!/bin/bash
-# Creator: Joel Rodriguez
-# Do: Crea symlinks para los dotfiles, 
+# Credits: Joel Rodriguez
+# Description: install dotfiles in $HOME folder
+# Requires: 
 # Use: ./install
 
 # important resources
 # https://www.cyberciti.biz/faq/find-command-exclude-ignore-files/
 
 # anadir las carpetas y archivos a ser ignorados
-exclude_dirs=("./.git/*")
-exclude_files=("install" "install_dependencies" "README.md" "test")
-install_folder=$HOME
+
+#TODO
+# fonts folder install
+# wallpapers folder
+# mozilla folder
+# pip2.backup, reload file siempre
+# pip3.backup, reload file siempre con cambios
+# tmux plugins
+# vim plugins install
+# file de aplicaciones instaladas con apt-get, apt, dpkg
+
+exclude_dirs=("./.git/*" "./personal/*")
+exclude_files=("install" "install_dependencies" "README.md" "test" ".gitignore", ".editorconfig")
+install_folder=$HOME/prueba_dotfiles
 dir=$(pwd)
 
 #crear los string de excluidos dir y files

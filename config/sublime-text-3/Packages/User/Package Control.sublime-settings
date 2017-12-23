@@ -1,0 +1,22 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Color Highlighter",
+		"EditorConfig",
+		"Emmet",
+		"Git blame",
+		"GitGutter",
+		"Handlebars",
+		"i3 wm",
+		"Markdown Extended",
+		"MarkdownEditing",
+		"Markmon real-time markdown preview",
+		"Package Control",
+		"Theme - Monokai",
+		"VIM Navigation"
+	]
+}

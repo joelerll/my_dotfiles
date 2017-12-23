@@ -1,0 +1,15 @@
+{
+	"folder_exclude_patterns":
+	[
+		"*.log",
+		"node_modules/*",
+		"vendor/*"
+	],
+	"font_size": 13,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"index_files": false,
+	"theme": "Adaptive.sublime-theme"
+}

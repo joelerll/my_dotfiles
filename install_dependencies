@@ -1,16 +1,59 @@
-# important apps
+#!/bin/bash
 
-# develop dependencies
-# nodejs
-# ruby
-# C
+## TODO, instalacion para ach linux
+current_folder=$(pwd)
+install_folder=$HOME/prueba_dotfiles
+font_awesome="font-awesome-4.7.0"
 
-# edito code
+# FONTS
+echo "Installing powerline....."
+git clone https://github.com/powerline/fonts.git --depth=1 tmp_fonts
+cd tmp_fonts
+#./install.sh
+cp -R * $install_folder/.fonts
+cd $current_folder
+rm -rf tmp_fonts
 
-# i3
+echo "Installing Nerd-Fonts......."
+git clone https://github.com/ryanoasis/nerd-fonts.git nerd_fonts
+cd nerd_fonts
+#./install.sh
+cd patched-fonts
+cp -R * $install_folder/.fonts
+cd $current_folder
+rm -rf nerd_fonts
+
+echo "Installing fontawesome....."
+wget http://fontawesome.io/assets/${font_awesome}.zip
+unzip "${font_awesome}.zip"
+cd $font_awesome
+cd fonts
+mkdir -p $install_folder/.fonts
+cp *.ttf $install_folder/.fonts
+cd $current_folder
+rm -rf $current_folder/$font_awesome $current_folder.zip
+
+echo "Installing System San Francisco....."
+git clone https://github.com/supermarin/YosemiteSanFranciscoFont.git san_francisco
+cd san_francisco
+cp *.ttf $install_folder/.fonts
+cd $current_folder
+rm -rf san_francisco
+
+#https://github.com/vorillaz/devicons
+#https://github.com/blog/1135-the-making-of-octicons
+#https://github.com/gabrielelana/pomicons
+
+echo "Restoring cache......"
+fc-cache -vf
 
 # vim
+# plug
 
 # tmux
+# tmux plugin manager
 
-# ranger
+# oh-my-zsh
+
+# nvm
+# rvm

@@ -1,0 +1,170 @@
+#!/bin/bash
+#chmod./VMware-Player-12.5.7-5813279.x86_64.bundle
+install() {
+  if [ -x "$(command -v $1)" ]; then
+    echo -e "\e[4mYa tiene instalado $1\e[0m"
+  else
+    echo -e "\e[4mInstalando $1\e[0m"
+    apt-get install $1 -y
+  fi
+}
+
+# basico
+install wget
+install curl
+install zip
+install unzip
+install p7zip-full
+install unzip
+install pavucontrol
+install git-all
+install i3-wm
+install i3
+install i3lock
+install i3status
+install ffmpeg
+install gcc
+install silversearcher-ag
+install awk
+install pactl
+install feh
+install compton
+install xbacklight
+install xrandr
+install xclip #xsel autocutsel
+install imagemagick
+install acpi
+install gksu
+install cpulimit
+install dbus
+install lm-sensors
+install xdotool
+
+# terminal
+install rxvt-unicode
+
+install rofi
+
+install dunst
+install libnotify
+
+# plugins network manager
+install network-manager
+install network-manager-openconnect
+install network-manager-openvpn
+install network-manager-ssh
+install network-manager-vpnc
+install network-manager-strongswan
+install network-manager-pptp
+
+
+#web browsers
+install chromium-browser
+# lynx
+
+#torren
+#aria 2
+
+# communicacion
+# discord
+
+# fuzzy finder
+# fzf4
+
+install w3m-img
+install mpv
+
+# musica
+install audacious
+install mpd
+
+install awesome
+
+install tmux
+
+# editor code
+install emacs
+install vim
+
+# pdf
+install okular
+install zathura
+
+# file manager
+install pcmanfm
+install ranger
+
+# musica
+install cmus
+
+
+#yarn
+#nvim
+#install nginx
+#java
+#apache2
+#mysql-server
+# arc-theme
+# numix-icon-theme-circle
+# min
+# termite
+# i3gaps
+# firefox-nigthly
+# sqlite3
+
+
+# bash
+install zsh
+
+#### languages
+
+# python
+install python-pip
+install python3-pip
+install python-gtk2
+install python-wheel
+install python3-gtk2
+install python3-wheel
+install python3-pyqt5
+install python3-setuptools
+install python3-tk
+install python3-virtualenv
+install python3.5-dev
+
+# ruby
+install ruby-dev
+
+# C
+install cmake
+install make
+install autoconf
+install automake
+
+# lisp
+install clisp
+
+
+# Librerias y dependencias
+
+# javascript
+
+# ruby
+# heroku
+# boom #snippets en commandline
+
+# rust
+# https://github.com/ogham/exa # reemplazo de ls
+
+# python
+
+# lua
+
+# go
+
+# python
+# py3status
+# tmuxp
+
+# gem
+
+# npm

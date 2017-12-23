@@ -1,0 +1,7 @@
+set window-title-basename true
+set guioptions " "
+
+set font        "Dejavu Sans Mono 10"
+
+set recolor-darkcolor       "#EEEEEE"
+set recolor-lightcolor      "#121212"

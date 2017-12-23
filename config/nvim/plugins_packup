@@ -1,0 +1,105 @@
+call plug#begin('~/.vim/plugged')
+
+"Busqueda de archivos
+Plug 'scrooloose/nerdtree'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.config/nvim/Plugins/fzf', 'do': './install --all' }
+
+"Inserta una barra
+Plug 'itchyny/lightline.vim'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+"Plugin 'vim-airline/vim-airline-themes'
+
+"Iconos
+Plug 'ryanoasis/vim-devicons'
+
+"Para los cambios que se hacen a un archivo con git
+Plug 'airblade/vim-gitgutter'
+
+"Numeros
+Plug 'myusuf3/numbers.vim'
+
+"temas
+Plug 'sjl/badwolf'
+Plug 'altercation/vim-colors-solarized'
+Plug 'chriskempson/tomorrow-theme'
+Plug 'Marfisc/vorange'
+Plug 'jacoborus/tender.vim'
+Plug 'MvanDiemen/brighton.vim'
+Plug 'the31k/vim-colors-tayra'
+Plug 'marcopaganini/termschool-vim-theme'
+Plug 'aliou/moriarty.vim'
+"Tags
+"Plug 'majutsushi/tagbar'
+
+"Comentarios rapidos
+"Plug 'scrooloose/nerdcommenter'
+
+"Identacion codigo avanzado
+"http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
+Plug 'godlygeek/tabular'
+
+"Selection multiple de texto
+"Plug 'terryma/vim-multiple-cursors'
+
+"Busqueda avanzada
+Plug 'easymotion/vim-easymotion'
+
+
+"Automcompletado
+"Plug 'valloric/youcompleteme'
+
+"Identacion de lineas
+"Plug 'nathanaelkane/vim-indent-guides'
+
+"Parentesis
+"Plug 'tpope/vim-surround'
+Plug 'Yggdroot/indentLine'
+
+"Verificacion de erres de sintaxis
+"Plug 'scrooloose/syntastic'
+
+"Crea tablas para markdown
+"Plug 'dhruvasagar/vim-table-mode'
+
+"Markdown
+"Plug 'tpope/vim-markdown'
+Plug 'JamshedVesuna/vim-markdown-preview'
+"Plug 'plasticboy/vim-markdown'
+
+"EditorConfig
+"Plug 'editorconfig/editorconfig-vim'
+
+"Python
+"Plug 'Valloric/YouCompleteMe'
+"Plug 'klen/python-mode'
+
+"Ruby and Rails
+"Plug 'tpope/vim-rails'
+"Plug 'vim-ruby/vim-ruby'
+
+"Web
+"Plug 'mattn/emmet-vim'
+"Plug 'tpope/vim-haml'
+"Plug 'othree/html5.vim'
+
+"Javascript
+Plug 'pangloss/vim-javascript'
+"Plug 'kchmck/vim-coffee-script'
+
+"Nodejs
+Plug 'moll/vim-node'
+
+"Emmet
+Plug 'mattn/emmet-vim'
+
+"css
+Plug 'skammer/vim-css-color'
+
+"shell
+Plug 'Shougo/vimshell.vim'
+
+call plug#end()
+
+

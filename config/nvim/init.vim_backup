@@ -1,0 +1,66 @@
+"source ~/.config/nvim/plugins
+
+"Tema
+"colorscheme moriarty "termschool badwolf tender
+
+"Da mas opciones a VIM
+"	set nocompatible
+
+"Segun el tipo de archivo, hace identado inteligente
+"	filetype indent plugin on
+
+"preguntar si guardar cambios
+"	set confirm
+
+"Keyvindings
+	 "Insert new line in normal mode
+"		nmap oo o<ESC>k
+"		imap jj <ESC>
+  	"NerdTree
+"		nnoremap <F1> :NERDTree<CR>
+"		nnoremap <F2> :NERDTreeClose<CR>
+      
+		"Siempre abrir nerdtree perno no focalizarlo
+			"autocmd VimEnter * NERDTree
+			"autocmd VimEnter * wincmd p
+
+
+"commandline completion
+ " 	set wildmenu
+
+"Linea de cursor;
+"set cursorline
+  	"set cursorcolumn
+
+
+"Tabs control
+	set noexpandtab
+	set copyindent
+	set preserveindent
+  	syntax on
+  	set tabstop=4
+  	set shiftwidth=4
+  	set shiftround
+	set softtabstop=0
+	set smarttab
+
+"Forzar usar j,k,l,h
+"	nnoremap <Left> :echoe "Use h"<CR>
+"	nnoremap <Right> :echoe "Use l"<CR>
+"	nnoremap <Up>:echoe "Use k" <CR>
+ "	nnoremap <Down> :echoe "Use j"<CR>
+
+"Posibles
+ 	"filetype on 
+ 	""syntax on
+ 	"set autowrite
+	 "set ruler
+
+"Emmet
+"	let g:user_emmet_mode='n'    "only enable normal mode functions.
+"	let g:user_emmet_mode='inv'  "enable all functions, which is equal to
+"	let g:user_emmet_mode='a'    "enable all function in all mode.
+
+"Diccionarios
+"nmap  :setlocal spell spelllang=es_es<cr>
+"nmap  :setlocal spell spelllang=en_en<cr>
