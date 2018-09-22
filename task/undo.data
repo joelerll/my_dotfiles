@@ -1,7 +1,0 @@
-time 1503620378
-new [description:"Prueba" entry:"1503620378" modified:"1503620378" status:"pending" uuid:"8340d968-adfd-4938-81c0-8413f88d6e5a"]
----
-time 1503620877
-old [description:"Prueba" entry:"1503620378" modified:"1503620378" status:"pending" uuid:"8340d968-adfd-4938-81c0-8413f88d6e5a"]
-new [description:"Prueba" end:"1503620877" entry:"1503620378" modified:"1503620877" status:"completed" uuid:"8340d968-adfd-4938-81c0-8413f88d6e5a"]
----

@@ -1,0 +1,1 @@
+rsync -r /home/joelerll/disk/music /media/joelerll/JOEL --exclude=1_ordenar --exclude=2_viejas

@@ -1,1 +1,1 @@
-cd ~/extras/arduino-1.6.12 && ./arduino
+cd ~/.extras/arduino && ./arduino

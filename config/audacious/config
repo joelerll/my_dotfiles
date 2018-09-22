@@ -3,11 +3,11 @@
 shuffle=TRUE
 
 [gtkui]
-column_widths=10,275,175,10,175,175,10,100,39,10,275,275,275,10
-player_height=718
-player_width=1366
+column_widths=10,275,175,10,175,175,10,100,43,10,275,275,275,10
+player_height=1042
+player_width=1920
 player_x=0
-player_y=50
+player_y=38
 
 [gtkui-layout]
 item_count=0

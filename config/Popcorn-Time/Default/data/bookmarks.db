@@ -116,3 +116,6 @@
 {"imdb_id":"tt2543312","type":"tvshow","_id":"ym62KSYJKGPd6KpL"}
 {"imdb_id":"tt1898069","type":"tvshow","_id":"ytwfLOQxduWKpoaI"}
 {"$$indexCreated":{"fieldName":"imdb_id","unique":true,"sparse":false}}
+{"$$indexCreated":{"fieldName":"imdb_id","unique":true}}
+{"$$indexCreated":{"fieldName":"imdb_id","unique":true}}
+{"$$indexCreated":{"fieldName":"imdb_id","unique":true}}

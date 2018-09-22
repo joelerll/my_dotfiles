@@ -14,6 +14,8 @@ install wget
 install curl
 install zip
 install unzip
+install rar 
+install unrar
 install p7zip-full
 install unzip
 install pavucontrol
@@ -36,12 +38,12 @@ install imagemagick
 install acpi
 install gksu
 install cpulimit
-install dbus
+install dbusp
 install lm-sensors
 install xdotool
 
 # terminal
-install rxvt-unicode
+# install rxvt-unicode
 
 install rofi
 
@@ -49,13 +51,14 @@ install dunst
 install libnotify
 
 # plugins network manager
-install network-manager
-install network-manager-openconnect
-install network-manager-openvpn
-install network-manager-ssh
-install network-manager-vpnc
-install network-manager-strongswan
-install network-manager-pptp
+# install network-manager
+# install network-manager-openconnect
+# install network-manager-openvpn
+# install network-manager-ssh
+# install network-manager-vpnc
+# install network-manager-strongswan
+# install network-manager-pptp
+# sudo apt-get install network-manager-openvpn-gnome
 
 
 #web browsers
@@ -97,6 +100,7 @@ install ranger
 # musica
 install cmus
 
+install gimp
 
 #yarn
 #nvim
@@ -104,8 +108,12 @@ install cmus
 #java
 #apache2
 #mysql-server
+install grc
+
+install httpie
 # arc-theme
 # numix-icon-theme-circle
+#!/bin/bash
 # min
 # termite
 # i3gaps
@@ -156,7 +164,9 @@ install clisp
 # https://github.com/ogham/exa # reemplazo de ls
 
 # python
-
+pip3 install py3status
+pip3 install pydbus
+pip install virtualenv
 # lua
 
 # go
@@ -168,3 +178,11 @@ install clisp
 # gem
 
 # npm
+
+
+# Emuladors
+install pcsxr
+
+
+install virtualbox
+install valgrind

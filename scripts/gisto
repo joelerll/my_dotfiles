@@ -1,1 +1,1 @@
-cd ~/extras/Gisto-0.3.1-linux_x64/gisto && ./gisto-bin
+cd ~/.extras/gisto/gisto && ./gisto-bin

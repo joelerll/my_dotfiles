@@ -1,15 +1,17 @@
 {
+	"color_scheme": "Packages/Color Scheme - Wallaby/Monokai.tmTheme",
 	"folder_exclude_patterns":
 	[
 		"*.log",
 		"node_modules/*",
 		"vendor/*"
 	],
-	"font_size": 13,
+	"font_size": 15,
 	"ignored_packages":
 	[
 		"Vintage"
 	],
 	"index_files": false,
-	"theme": "Adaptive.sublime-theme"
+	"theme": "Adaptive.sublime-theme",
+	"wrap": true
 }

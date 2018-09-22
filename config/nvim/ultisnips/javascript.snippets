@@ -1,0 +1,78 @@
+snippet pretty "pretty-print JSON-able data" b
+console.log(
+  JSON.stringify({
+    $1
+  }, null, 2)
+)
+endsnippet
+
+snippet log "console.log" b
+console.log(${1})
+endsnippet
+
+snippet logs "console.log('string')" b
+console.log('${1}')
+endsnippet
+
+
+snippet describe "describetest" b
+describe('@${1}', ()=> {
+  it('@${3}', function(done) {
+    $5
+    done()
+  })
+})
+endsnippet
+
+snippet prom "promise joel" b
+return new Promise((resolve, reject) => {
+  ${1}
+})
+endsnippet
+
+snippet docsatt "documetacion att" b
+generatorDocs.OK({ docs, doc, res, req })
+endsnippet
+
+snippet gdocs "documetacion att" b
+generatorDocs.OK({ docs, doc, res, req })
+endsnippet
+
+snippet edocs "documetacion att error" b
+generatorDocs.ERROR({ nombre: '${1}', docs, doc, res, req })
+endsnippet
+
+snippet ddoc "documetacion att" b
+let doc = {
+      nombre: '${1}',
+      metodo: '${2}',
+      url: '${3}',
+      descripcion: '${4}',
+      body: [
+      ],
+      errors: []
+    }
+endsnippet
+
+snippet if "if ... then (if)"
+    if ${2:[[ ${1:condition} ]]}; then
+            ${0:#statements}
+    fi
+endsnippet
+
+snippet wow
+${1:Text}`!p snip.rv = (75-2*len(t[1]))*' '+t[1].upper()`
+endsnippet
+
+snippet req "req app"
+request(app)
+  .${1}('${2}')
+  .end(function(err, res) {
+    expect(res.body.estado).to.equal(${3})
+    expect(res.status).to.equal(${3})
+    expect(res.body.codigoEstado).to.equal(${3})
+    generatorDocs.OK({ docs, doc, res })
+    done()
+  })
+endsnippet
+

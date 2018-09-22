@@ -1,1 +1,1 @@
-cd ~/extras/genymotion && ./genymotion
+cd ~/.extras && ./genymotion

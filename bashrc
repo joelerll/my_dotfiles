@@ -127,6 +127,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 ### Alias
 alias dot='/usr/bin/git --git-dir=/home/joelerll/.cfg/ --work-tree=/home/joelerll'
+alias syncm='.dotfiles/personal/sync_music'
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
@@ -135,5 +136,8 @@ export NVM_DIR="/home/joelerll/.nvm"
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-transfer() { if [ $# -eq 0 ]; then echo -e "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"; return 1; fi 
-tmpfile=$( mktemp -t transferXXX ); if tty -s; then basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g'); curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> $tmpfile; else curl --progress-bar --upload-file "-" "https://transfer.sh/$1" >> $tmpfile ; fi; cat $tmpfile; rm -f $tmpfile; } 
+export SPOTIPY_CLIENT_ID='97a0648f14274f4895863cae2ef14edc'
+export SPOTIPY_CLIENT_SECRET='1f7d78437f6349eda7eb0303ddbd3290'
+
+# transfer() { if [ $# -eq 0 ]; then echo -e "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"; return 1; fi 
+#  tmpfile=$( mktemp -t transferXXX ); if tty -s; then basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g'); curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> $tmpfile; else curl --progress-bar --upload-file "-" "https://transfer.sh/$1" >> $tmpfile ; fi; cat $tmpfile; rm -f $tmpfile; } [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

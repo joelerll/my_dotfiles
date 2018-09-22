@@ -23,3 +23,6 @@
 {"key":"releaseName","value":"Popcorn is Love","_id":"grLtrZjk3Y5loGNT"}
 {"key":"arch","value":"x64","_id":"jBdNLGBT6Bgo9nMt"}
 {"key":"os","value":"linux","_id":"HcwoVq2sPQtY3Hea"}
+{"$$indexCreated":{"fieldName":"key","unique":true}}
+{"$$indexCreated":{"fieldName":"key","unique":true}}
+{"$$indexCreated":{"fieldName":"key","unique":true}}

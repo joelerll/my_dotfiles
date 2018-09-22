@@ -63,6 +63,10 @@ export PATH=$PATH:/opt/java/jdk1.8.0_121/bin:/opt/java/jdk1.8.0_121/jre/bin
 
 
 # pywal
-(wal -r -t &)
+# (wal -r -t &)
 
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.extras/mongodb/bin:$PATH"
+export ANDROID_HOME=$HOME/.extras/android_studio
+export PATH=$PATH:$ANDROID_HOME/tools
+export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")

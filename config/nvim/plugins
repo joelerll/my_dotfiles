@@ -1,77 +1,25 @@
 call plug#begin('~/.local/share/nvim/plugged')
-" tree
-Plug 'scrooloose/nerdtree'
+  " ==================
+  " Color Schemes
+  " ==================
+  Plug 'sjl/badwolf'
+  Plug 'felipesousa/rupza'
 
-" Fuzzy finder
-" Plug 'kien/ctrlp.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+  Plug 'editorconfig/editorconfig-vim'
+  Plug 'Yggdroot/indentLine'
+  Plug 'sheerun/vim-polyglot'
+  Plug 'ervandew/supertab'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'Valloric/YouCompleteMe' " .local/share/nvim/plugged/YouCompleteMe ./install.py
+  Plug 'honza/vim-snippets'
 
-" Git file changes
-Plug 'airblade/vim-gitgutter'
-
-" Editor config
-Plug 'editorconfig/editorconfig-vim'
-
-" Autocomplete
-Plug 'Shougo/deoplete.nvim'
-
-" bookmarks
-Plug 'MattesGroeger/vim-bookmarks'
-
-" Snippets
-Plug 'honza/vim-snippets'
-Plug 'SirVer/ultisnips'
-
-" Emmet
-Plug 'mattn/emmet-vim'
-
-" Javascript
-Plug 'jelera/vim-javascript-syntax'
-Plug 'pangloss/vim-javascript'
-
-" Find in files a word
-" Plug 'mileszs/ack.vim'
-
-" Rails
-Plug 'tpope/vim-rails'
-
-" Html autoclose
-"Plug 'alvan/vim-closetag'
-
-" Css colors
-Plug 'ap/vim-css-color'
-
-" git
-Plug 'tpope/vim-fugitive'
-
-" Docker
-Plug 'ekalinin/Dockerfile.vim'
-
-"
-Plug 'easymotion/vim-easymotion'
-
-" 
-Plug 'jceb/vim-orgmode'
-
-" :Obsess name
-Plug 'tpope/vim-obsession'
-
-"
-Plug 'mhinz/vim-startify'
-
-"ervandew/eclim
-
-"  ==================
-" Color Schemes
-" =============
-Plug 'hzchirs/vim-material'
-Plug 'rakr/vim-one'
-Plug 'sjl/badwolf'
-
-" Airline
-"Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
-"Plug 'itchyny/lightline.vim'
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
+  Plug 'scrooloose/nerdtree'
+  Plug 'tpope/vim-surround'
+  Plug 'mattn/emmet-vim'
+  Plug 'sirver/UltiSnips' " pip install neovim
+  Plug 'scrooloose/nerdcommenter'
+  Plug 'jiangmiao/auto-pairs' " https://github.com/jiangmiao/auto-pairs
 
 call plug#end()

@@ -102,5 +102,5 @@ source $HOME/.rvm/scripts/rvm
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 plugins=(rails git ruby vi-mode)
 
-(wal -r -t &)
+# (wal -r -t &)
 #export DISABLE_AUTO_TITLE = 'true'

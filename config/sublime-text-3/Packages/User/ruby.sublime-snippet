@@ -1,0 +1,9 @@
+<snippet>
+    <content><![CDATA[Rails.logger.debug("\033[32mlogger=#{${1: }}\033[0m")]]></content>
+    <!-- Optional: Tab trigger to activate the snippet -->
+    <tabTrigger>rails.con</tabTrigger>
+    <!-- Optional: Scope the tab trigger will be active in -->
+    <scope>source.ruby</scope>
+    <!-- Optional: Description to show in the menu -->
+    <description>Rails.logger</description>
+</snippet>

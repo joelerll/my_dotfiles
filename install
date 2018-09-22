@@ -19,9 +19,22 @@
 # vim plugins install
 # file de aplicaciones instaladas con apt-get, apt, dpkg
 
+# cd ~
+# rm -rf Desktop
+# rm -rf Pictures
+# rm -rf Public
+# rm -rf Templates
+# rm -rf Videos
+# rm -rf Documents
+# rm -rf Downloads
+# rm -rf Music
+# mkdir .extras
+# mkdir .screenshots
+# mkdir downloads
+
 exclude_dirs=("./.git/*" "./personal/*")
-exclude_files=("install" "install_dependencies" "README.md" "test" ".gitignore", ".editorconfig")
-install_folder=$HOME/prueba_dotfiles
+exclude_files=("install" "install_dependencies" "README.md" "test" ".gitignore", ".editorconfig", ".gitignore")
+install_folder=$HOME
 dir=$(pwd)
 
 #crear los string de excluidos dir y files

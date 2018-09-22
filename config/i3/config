@@ -1,8 +1,7 @@
 # Credits:     joelerll
 # Description: i3wm config file 
-# Requires:    i3wm, i3gaps, firefox, chromium-browser, min, urxvt, termite, rofi, dunst,network-manager, gksu, pactl, feh ,compton ,xbacklight ,xrandr ,xclip, imagemagick, py3status, fontawesome
+# Requires:    i3wm, i3gaps, firefox, chromium-browser, min, urxvt, termite, rofi, dunst,network-manager, gksu, pactl, feh ,compton ,xbacklight ,xrandr, ,xclip, imagemagick, py3status, fontawesome, pytify, spotify client
 # Usage:       file in ~/.config/i3/config
-#
 
 
 # ================== #
@@ -12,7 +11,6 @@ workspace_layout tabbed
 hide_edge_borders both
 workspace_auto_back_and_forth yes
 focus_follows_mouse no
-smart_gaps on
 
 # ================== #
 # variables globales
@@ -36,12 +34,24 @@ set $font fontawesome
 set $font_size 9
 font pango: $font  $font_size
 
-set $firefox ~/extras/firefox-nightly/firefox
+set $firefox ~/.extras/firefox_nightly/firefox
 set $chrome chromium-browser
-set $scratchpad_browser_class Min
-set $scratchpad_browser min
-set $terminal_scratchpad urxvt -name scratchpad
 set $file_manager Pcmanfm
+set $file_managet_bin pcmanfm
+for_window [class="$file_manager"] move window to scratchpad
+bindsym $mod+z [class="$file_manager"] scratchpad show
+exec --no-startup-id $file_managet_bin
+
+set $scratchpad_browser Min
+set $scratchpad_browser_bin min
+for_window [class="$scratchpad_browser"] move window to scratchpad 
+# resize set 800 px 600 px
+bindsym $mod+shift+z [class="$scratchpad_browser"] scratchpad show
+exec --no-startup-id $scratchpad_browser_bin
+
+# set $terminal_scratchpad lxterminal -t scratchpad
+# exec_always $terminal_scratchpad
+# bindsym $mod+Control+minus [instance="scratchpad"] scratchpad show 
 
 # ================== #
 # rofi config
@@ -54,7 +64,8 @@ bindsym $mod+shift+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -dmenu 
 # ================= #
 
 # aplicaciones
-bindsym $mod+Return exec termite -c ~/.config/termite/config
+bindsym $mod+Return exec lxterminal
+# bindsym $mod+Return exec termite -c ~/.config/termite/config
 bindsym $mod + shift + f exec i3-msg "exec firefox-nightly"
 
 
@@ -81,9 +92,8 @@ bindsym $mod+Shift+n exec gksu  service network-manager restart
 #bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 
 # Scratchapas xprop
-bindsym $mod+minus [class="$scratchpad_browser_class"] scratchpad show resize set 800 px 600 px 
-bindsym $mod+Control+minus [instance="scratchpad"] scratchpad show 
-bindsym $mod+p [class="$file_manager"] scratchpad show 
+# bindsym $mod+Control+minus [instance="scratchpad"] scratchpad show
+
 
 # Pulse Audio controls pavucontrol
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
@@ -115,7 +125,7 @@ bindsym $mod+Shift+l move right
 #bindsym $mod+Shift+Up move up
 #bindsym $mod+Shift+Right move right
 
-#bindsym $mod+g split h
+bindsym $mod+Control+h split h
 bindsym $mod+Control+v split v
 
 bindsym $mod+f fullscreen toggle
@@ -138,18 +148,18 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # ================= #
-# workspaces
+# workspaces 
 # ================= #
-set $workspace1 "1: "
+set $workspace1 "1: "
 set $workspace2 "2: "
 set $workspace3 "3: "
-set $workspace4 "4: "
-set $workspace5 "5: "
-set $workspace6 "6: "
-set $workspace7 "7: sistemas distribuidos"
-set $workspace8 "8: seguridad informacion"
-set $workspace9 "9: ingenieria software"
-set $workspace10 "10: interaccion hombre computador"
+set $workspace4 "4: "
+set $workspace5 "5: PHYCOM"
+set $workspace6 "6: APRENDER"
+set $workspace7 "7: FUNDAMUERTOS"
+set $workspace8 "8: PPL"
+set $workspace9 "9: TRABAJO"
+set $workspace10 "10:  "
 
 bindsym $mod+1 workspace $workspace1
 bindsym $mod+2 workspace $workspace2
@@ -186,13 +196,16 @@ bindsym $mod+m move workspace to output left
 # ================= #
 for_window [class="^.*"] border pixel 0
 for_window [window_role="pop-up"] floating enable, move absolute center
+
 for_window [window_role="gimp-toolbox"] floating enable
 for_window [class="Wicd-client.py|Lxappearance|Arandr|^File-roller$|Gpick|Tk|sun-awt-X11-XWindowPeer"] floating enable
+for_window [window_role="gimp-dock"] floating disable; move left; resize shrink width 50 px or 50ppt
+for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
 
 # scratchpads
-for_window [instance="scratchpad"] resize set 500 px 500 px move window to scratchpad
-for_window [class="$scratchpad_browser_class"] move window to scratchpad
-for_window [class="$file_manager"] move window to scratchpad
+# for_window [instance="scratchpad"] resize set 500 px 500 px move window to scratchpad
+
+
 
 # ================= #
 # autostart apps
@@ -204,14 +217,9 @@ for_window [class="$file_manager"] move window to scratchpad
 # Default init
 # ================= #
 
-# scratchpads
-exec --no-startup-id $scratchpad_browser
-exec --no-startup-id $terminal_scratchpad
-exec --no-startup-id $file_manager
-
 
 #Walpaper
-exec_always feh --bg-scale ~/.wallpapers/GayMostrón.png
+exec_always feh --bg-scale ~/.dotfiles/wallpapers/vikings-hacha.jpeg
 
 # bateria notificaciones
 exec ~/.config/i3/i3scripts/battery & disown
@@ -234,10 +242,8 @@ exec_always ~/.config/i3/i3scripts/reload_dunst
 
 set $browser_mode browser= firefox: [d]efault | [p]pl
 bindsym $mod+shift+b mode $browser_mode
-#$firefox
-#$chrome
 mode "$browser_mode" {
-    bindsym d exec $firefox -P 'default', mode "default"
+    bindsym d exec $firefox -P 'joel', mode "default"
     bindsym p exec $firefox -P 'ppl', mode "default"
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -261,14 +267,23 @@ mode "" {
 }
 
 
-set $open_proyect proyect= Open Proyect: [P]pl | [D]otfiles | [F]undamuertos
+set $open_proyect [P]pl | PPLAp[i] | P[h]app | [F]undamuertos | [A]tt  | [B]log | [D]otfiles 
 bindsym $mod+o mode $open_proyect
-set $editor_bin_path ~/extras/sublime_text_3/sublime_text
-set $ppl_path ~/pasantias/espol-ppl
-set $dotfiles_path ~/dotfiles 
-set $fundamuertos_path ~/proyects/fundamuertos
+set $editor_bin_path ~/.extras/sublime_text_3/sublime_text
+set $chat_path ~/proyects/platform-messaging
+set $ppl_path ~/proyects/ppl/ppl_app_lab
+set $ppl__api_path ~/proyects/ppl/v2/ppl_assessment_api
+set $phapp_path ~/proyects/phapp-rails
+set $att_path ~/proyects/ppl/ppl_app_lab/att
+set $dotfiles_path ~/.dotfiles 
+set $fundamuertos_path ~/proyects/fundamuertos/codigo
+set $blog_path ~/proyects/blog
 mode "$open_proyect" {
+    bindsym a exec $editor_bin_path $att_path, mode "default"
     bindsym p exec $editor_bin_path $ppl_path, mode "default"
+    bindsym i exec $editor_bin_path $ppl__api_path, mode "default"
+    bindsym h exec $editor_bin_path $phapp_path, mode "default"
+    bindsym b exec $editor_bin_path $blog_path, mode "default"
     bindsym d exec $editor_bin_path $dotfiles_path, mode "default"
     bindsym f exec $editor_bin_path $fundamuertos_path, mode "default"
     bindsym Return mode "default"
@@ -276,13 +291,13 @@ mode "$open_proyect" {
 }
 
 
-set $power_mode power= p :   |  r :   |  e :   | b :  | x: sleep | h: hibernate | f: h & x
+set $power_mode power= p :   |  r :   |  e :   | b :  | x: sleep | h: hibernate | f: h o x
 bindsym $mod+Shift+q mode "$power_mode"
 mode "$power_mode" {
 	bindsym p exec systemctl poweroff
 	bindsym r exec systemctl reboot
-    bindsym h exec gksu systemctl hibernate, mode "default"
-    bindsym f exec gksu systemctl hybrid-sleep, mode "default"
+  bindsym h exec gksu systemctl hibernate, mode "default"
+  bindsym f exec gksu systemctl hybrid-sleep, mode "default"
 	bindsym x exec systemctl suspend, mode "default"
 	bindsym e exec i3-msg exit
 	bindsym b exec i3lock -i $HOME/.wallpapers/tengen.png , mode "default"
@@ -303,7 +318,7 @@ mode "$screenshot_mode" {
 	bindsym Escape mode "default"
 }
 
-set $multimonitor_mode  monitores= [d]ual | [l]eft |  [r]ight | d[u]al | le[f]t | r[i]ght |[e]xit |mod+m
+set $multimonitor_mode  monitores= only monitor [x] | [d]ual | [l]eft |  [r]ight | d[u]al | le[f]t | r[i]ght |  [e]xit | mod+m
 bindsym $mod+Shift+m  mode "$multimonitor_mode"
 mode "$multimonitor_mode" {
 	bindsym d exec xrandr --output $monitor --auto --same-as $laptop, mode "default"
@@ -313,45 +328,19 @@ mode "$multimonitor_mode" {
 	bindsym u exec xrandr --output $hdmi --auto --same-as $laptop, mode "default"
 	bindsym f exec xrandr --output $hdmi --auto --left-of $laptop, mode "default"
 	bindsym i exec xrandr --output $hdmi  --auto --right-of $laptop, mode "default"
+    bindsym x exec xrandr --output $monitor --auto --output  $laptop --off, mode "default"
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
 }
 
-set $mode_gaps Gaps: (o) outer, (i) inner
-set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+Shift+g mode "$mode_gaps"
-mode "$mode_gaps" {
-    bindsym o      mode "$mode_gaps_outer"
-    bindsym i      mode "$mode_gaps_inner"
+set $change_lang  lang= [e]s | u[s]
+bindsym $mod+shift+a  mode "$change_lang"
+mode "$change_lang" {
+    bindsym s exec setxkbmap us, mode "default"
+    bindsym e exec setxkbmap es, mode "default"
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-mode "$mode_gaps_inner" {
-    bindsym plus  gaps inner current plus 5
-    bindsym minus gaps inner current minus 5
-    bindsym 0     gaps inner current set 0
-
-    bindsym Shift+plus  gaps inner all plus 5
-    bindsym Shift+minus gaps inner all minus 5
-    bindsym Shift+0     gaps inner all set 0
-
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-mode "$mode_gaps_outer" {
-    bindsym plus  gaps outer current plus 5
-    bindsym minus gaps outer current minus 5
-    bindsym 0     gaps outer current set 0
-
-    bindsym Shift+plus  gaps outer all plus 5
-    bindsym Shift+minus gaps outer all minus 5
-    bindsym Shift+0     gaps outer all set 0
-
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
 
 # ================= #
 # bar config
@@ -368,8 +357,17 @@ bar {
 	}
 }
 
+bindsym $mod+Escape exec  xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+bindsym $mod+shift+Escape exec xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
+
+exec_always mongod --dbpath ~/.extras/mongodb/data
+
+#Spotify
+bindsym $mod+F6 exec pytify -n
+bindsym $mod+F5 exec pytify -p
+bindsym $mod+F7 exec pytify -pp
+
 ### TODO
-# pcmanfm error scratchpad
 # scratchpad ranger
 # bajar brillo hdmi o vga
 # detectar un monitor y colocarlo a la izquierda automatico

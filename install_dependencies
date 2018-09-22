@@ -2,9 +2,9 @@
 
 ## TODO, instalacion para ach linux
 current_folder=$(pwd)
-install_folder=$HOME/prueba_dotfiles
+install_folder=$HOME
 font_awesome="font-awesome-4.7.0"
-
+mkdir ~/.fonts
 # FONTS
 echo "Installing powerline....."
 git clone https://github.com/powerline/fonts.git --depth=1 tmp_fonts
@@ -27,8 +27,8 @@ echo "Installing fontawesome....."
 wget http://fontawesome.io/assets/${font_awesome}.zip
 unzip "${font_awesome}.zip"
 cd $font_awesome
-cd fonts
-mkdir -p $install_folder/.fonts
+cd .fonts
+# mkdir -p $install_folder/.fonts
 cp *.ttf $install_folder/.fonts
 cd $current_folder
 rm -rf $current_folder/$font_awesome $current_folder.zip

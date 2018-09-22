@@ -1,1 +1,1 @@
-cd ~ && ./extras/firefox-nightly/firefox
+cd ~ && ./.extras/firefox_nightly/firefox
