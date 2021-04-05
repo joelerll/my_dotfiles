@@ -1,311 +1,146 @@
 # Credits:     joelerll
 # Description: i3wm config file 
-# Requires:    i3wm, i3gaps, firefox, chromium-browser, min, urxvt, termite, rofi, dunst,network-manager, gksu, pactl, feh ,compton ,xbacklight ,xrandr, ,xclip, imagemagick, py3status, fontawesome, pytify, spotify client
+# Requires:    
 # Usage:       file in ~/.config/i3/config
 
+# ================== #
+# Global variables
+# ================== #
+# set $monitor VGA1 
+# set $laptop LVDS1
+# set $hdmi HDMI1
+set $mod Mod4
 
 # ================== #
-# Configuraciones globales
+# Global configurations
 # ================== #
 workspace_layout tabbed
 hide_edge_borders both
 workspace_auto_back_and_forth yes
 focus_follows_mouse no
+floating_modifier $mod
 
 # ================== #
-# variables globales
+# File manager
 # ================== #
-set $monitor VGA1 
-set $laptop LVDS1
-set $hdmi HDMI1
-set $mod Mod4
-
-# colors
-set $bg-color 	        	 	#173e43
-set $inactive-bg-color  	 	#173e43
-set $text-color				    #fae594
-set $inactive-text-color 		#dddfd4
-set $urgent-bg-color	 		#3fb0ac
-
-# ================== #
-# fonts config
-# ================== #
-set $font fontawesome
-set $font_size 9
-font pango: $font  $font_size
-
-set $firefox ~/.extras/firefox_nightly/firefox
-set $chrome chromium-browser
 set $file_manager Pcmanfm
 set $file_managet_bin pcmanfm
 for_window [class="$file_manager"] move window to scratchpad
 bindsym $mod+z [class="$file_manager"] scratchpad show
 exec --no-startup-id $file_managet_bin
 
-set $scratchpad_browser Min
-set $scratchpad_browser_bin min
-for_window [class="$scratchpad_browser"] move window to scratchpad 
-# resize set 800 px 600 px
-bindsym $mod+shift+z [class="$scratchpad_browser"] scratchpad show
-exec --no-startup-id $scratchpad_browser_bin
-
-# set $terminal_scratchpad lxterminal -t scratchpad
-# exec_always $terminal_scratchpad
-# bindsym $mod+Control+minus [instance="scratchpad"] scratchpad show 
-
-# ================== #
-# rofi config
-# ================== #
-bindsym $mod+d exec rofi -show run -lines 5 -eh 2 -width 100 -padding 200 -opacity "50"  -font "Hack 18"
+# Global launcher
+bindsym $mod+d exec rofi -show run -lines 5 -eh 2 -width 100 -padding 200 -opacity "50"  -font "Hack 18" 
 bindsym $mod+shift+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -dmenu -lines 5 -eh 2 -width 100 -padding  200 -opacity "50" -font "Hack 18"'
 
-# ================= #
-# shortcuts
-# ================= #
-
-# aplicaciones
+# Default apps
 bindsym $mod+Return exec lxterminal
-# bindsym $mod+Return exec termite -c ~/.config/termite/config
-bindsym $mod + shift + f exec i3-msg "exec firefox-nightly"
 
+font pango:monospace 8
 
-# Volume control
-bindsym $mod+F10 exec pactl set-sink-volume 0 +5%
-bindsym $mod+F9 exec pactl set-sink-volume 0 -5%
-bindsym $mod+F11 exec pactl set-sink-mute 0 toggle
+# Init apps
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id nm-applet
+exec_always compton -f
 
-# Sreen brightness controls
-bindsym $mod+F3 exec xbacklight -inc 2 #increase screen brightness
-bindsym $mod+F2 exec xbacklight -dec 2 #decrease screen brightness
+# Use pactl to adjust volume in PulseAudio.
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-# Media player controls
-bindsym $mod+shift+F7  exec playerctl play
-bindsym $mod+shift+p exec playerctl pause
-bindsym $mod+shift+F8 exec playerctl next
-bindsym $mod+shift+F6 exec playerctl previous
-
-# reload nm-applet
-bindsym $mod+Shift+n exec gksu  service network-manager restart
-
-# key indicators
-#bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
-#bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
-
-# Scratchapas xprop
-# bindsym $mod+Control+minus [instance="scratchpad"] scratchpad show
-
-
-# Pulse Audio controls pavucontrol
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
-
-bindsym $mod+b workspace back_and_forth
 bindsym $mod+q kill
-bindsym $mod+Control+Shift+k focus parent, focus parent, focus parent, focus parent, focus parent, focus parent, focus parent, focus parent, focus parent, focus parent, kill #kill al the window on a specific workspace
 
-# focus_window
+# window focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-
-#bindsym $mod+Left focus left
-#bindsym $mod+Down focus down
-#bindsym $mod+Up focus up
-#bindsym $mod+Right focus right
 
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-#bindsym $mod+Shift+Left move left
-#bindsym $mod+Shift+Down move down
-#bindsym $mod+Shift+Up move up
-#bindsym $mod+Shift+Right move right
-
+# splits
 bindsym $mod+Control+h split h
 bindsym $mod+Control+v split v
 
+# enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
+# change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
+# toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
+# change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
+# focus the parent container
 bindsym $mod+a focus parent
-#bindsym $mod+d focus child
 
-floating_modifier $mod
+exec_always feh --bg-scale ~/.wallpapers/wonder_egg_priority.jpg
 
-bindsym $mod+u border none
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+# reload the configuration file
 bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
-# ================= #
-# workspaces 
-# ================= #
-set $workspace1 "1: "
-set $workspace2 "2: "
-set $workspace3 "3: "
-set $workspace4 "4: "
-set $workspace5 "5: PHYCOM"
-set $workspace6 "6: APRENDER"
-set $workspace7 "7: FUNDAMUERTOS"
-set $workspace8 "8: PPL"
-set $workspace9 "9: TRABAJO"
-set $workspace10 "10:  "
-
-bindsym $mod+1 workspace $workspace1
-bindsym $mod+2 workspace $workspace2
-bindsym $mod+3 workspace $workspace3
-bindsym $mod+4 workspace $workspace4
-bindsym $mod+5 workspace $workspace5
-bindsym $mod+6 workspace $workspace6
-bindsym $mod+7 workspace $workspace7
-bindsym $mod+8 workspace $workspace8
-bindsym $mod+9 workspace $workspace9
-bindsym $mod+0 workspace $workspace10
-
-bindsym $mod+Shift+1 move container to workspace $workspace1
-bindsym $mod+Shift+2 move container to workspace $workspace2
-bindsym $mod+Shift+3 move container to workspace $workspace3
-bindsym $mod+Shift+4 move container to workspace $workspace4
-bindsym $mod+Shift+5 move container to workspace $workspace5
-bindsym $mod+Shift+6 move container to workspace $workspace6
-bindsym $mod+Shift+7 move container to workspace $workspace7
-bindsym $mod+Shift+8 move container to workspace $workspace8
-bindsym $mod+Shift+9 move container to workspace $workspace9
-bindsym $mod+Shift+0 move container to workspace $workspace10
-
-bindsym $mod+m move workspace to output left
-
-
-# ================= #
-# aplicacion to workspaces
-# ================= #
-#assign [class ="QuiteRss"] $workspace9
-
-# ================= #
-# windows
-# ================= #
-for_window [class="^.*"] border pixel 0
-for_window [window_role="pop-up"] floating enable, move absolute center
-
-for_window [window_role="gimp-toolbox"] floating enable
-for_window [class="Wicd-client.py|Lxappearance|Arandr|^File-roller$|Gpick|Tk|sun-awt-X11-XWindowPeer"] floating enable
-for_window [window_role="gimp-dock"] floating disable; move left; resize shrink width 50 px or 50ppt
-for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
-
-# scratchpads
-# for_window [instance="scratchpad"] resize set 500 px 500 px move window to scratchpad
-
-
-
-# ================= #
-# autostart apps
-# ================= #
-#exec --no-startup-id i3-msg 'workspace $workspace10;exec  remarkable /home/joelerll/Documents/read.md;; workspace $workspace1'
-
-
-# ================= #
-# Default init
-# ================= #
-
-
-#Walpaper
-exec_always feh --bg-scale ~/.dotfiles/wallpapers/vikings-hacha.jpeg
-
-# bateria notificaciones
-exec ~/.config/i3/i3scripts/battery & disown
-
-#tranparencia
-exec_always compton -f
-exec--no-startup-id nm-applet
-
-# MONITORS DEFAULT BRIGTHNESS
-exec_always xbacklight  -set 10
-exec_always xrandr --output $monitor --brightness 1
-
-# dunst reload
-exec_always ~/.config/i3/i3scripts/reload_dunst
-
-
-# ================= #
-# modes
-# ================= #
-
-set $browser_mode browser= firefox: [d]efault | [p]pl
-bindsym $mod+shift+b mode $browser_mode
-mode "$browser_mode" {
-    bindsym d exec $firefox -P 'joel', mode "default"
-    bindsym p exec $firefox -P 'ppl', mode "default"
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-bindsym $mod+r mode ""
-mode "" {
-	set $NUM 2
-    bindsym h resize shrink width $NUM px or $NUM ppt
-    bindsym j resize grow height $NUM px or $NUM ppt
-    bindsym k resize shrink height $NUM px or $NUM ppt
-    bindsym l resize grow width $NUM px or $NUM ppt
-
-    bindsym Left resize shrink width $NUM px or $NUM ppt
-    bindsym Down resize grow height $NUM px or $NUM ppt
-    bindsym Up resize shrink height $NUM px or $NUM ppt
-    bindsym Right resize grow width $NUM px or $NUMq ppt
-
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-
-set $open_proyect [P]pl | PPLAp[i] | P[h]app | [F]undamuertos | [A]tt  | [B]log | [D]otfiles 
-bindsym $mod+o mode $open_proyect
-set $editor_bin_path ~/.extras/sublime_text_3/sublime_text
-set $chat_path ~/proyects/platform-messaging
-set $ppl_path ~/proyects/ppl/ppl_app_lab
-set $ppl__api_path ~/proyects/ppl/v2/ppl_assessment_api
-set $phapp_path ~/proyects/phapp-rails
-set $att_path ~/proyects/ppl/ppl_app_lab/att
-set $dotfiles_path ~/.dotfiles 
-set $fundamuertos_path ~/proyects/fundamuertos/codigo
-set $blog_path ~/proyects/blog
-mode "$open_proyect" {
-    bindsym a exec $editor_bin_path $att_path, mode "default"
-    bindsym p exec $editor_bin_path $ppl_path, mode "default"
-    bindsym i exec $editor_bin_path $ppl__api_path, mode "default"
-    bindsym h exec $editor_bin_path $phapp_path, mode "default"
-    bindsym b exec $editor_bin_path $blog_path, mode "default"
-    bindsym d exec $editor_bin_path $dotfiles_path, mode "default"
-    bindsym f exec $editor_bin_path $fundamuertos_path, mode "default"
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-
-set $power_mode power= p :   |  r :   |  e :   | b :  | x: sleep | h: hibernate | f: h o x
+# power mode
+set $power_mode power= [p]ower | [r]estart | [e]xit | [x]sleep
 bindsym $mod+Shift+q mode "$power_mode"
 mode "$power_mode" {
 	bindsym p exec systemctl poweroff
 	bindsym r exec systemctl reboot
-  bindsym h exec gksu systemctl hibernate, mode "default"
-  bindsym f exec gksu systemctl hybrid-sleep, mode "default"
 	bindsym x exec systemctl suspend, mode "default"
 	bindsym e exec i3-msg exit
-	bindsym b exec i3lock -i $HOME/.wallpapers/tengen.png , mode "default"
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
 }
 
-
+# screenshot mode
 set $screenshot_mode capture= [r]egion | [d]esktop | [w]indow
 bindsym $mod+Shift+s mode "$screenshot_mode"
 mode "$screenshot_mode" {
@@ -318,21 +153,7 @@ mode "$screenshot_mode" {
 	bindsym Escape mode "default"
 }
 
-set $multimonitor_mode  monitores= only monitor [x] | [d]ual | [l]eft |  [r]ight | d[u]al | le[f]t | r[i]ght |  [e]xit | mod+m
-bindsym $mod+Shift+m  mode "$multimonitor_mode"
-mode "$multimonitor_mode" {
-	bindsym d exec xrandr --output $monitor --auto --same-as $laptop, mode "default"
-	bindsym l exec xrandr --output $monitor --auto --left-of $laptop, mode "default"
-	bindsym r exec xrandr --output $monitor --auto --right-of $laptop, mode "default"
-	bindsym e exec xrandr --output $laptop --auto --output  $monitor --off, mode "default"
-	bindsym u exec xrandr --output $hdmi --auto --same-as $laptop, mode "default"
-	bindsym f exec xrandr --output $hdmi --auto --left-of $laptop, mode "default"
-	bindsym i exec xrandr --output $hdmi  --auto --right-of $laptop, mode "default"
-    bindsym x exec xrandr --output $monitor --auto --output  $laptop --off, mode "default"
-	bindsym Return mode "default"
-	bindsym Escape mode "default"
-}
-
+# language mode
 set $change_lang  lang= [e]s | u[s]
 bindsym $mod+shift+a  mode "$change_lang"
 mode "$change_lang" {
@@ -342,34 +163,33 @@ mode "$change_lang" {
     bindsym Escape mode "default"
 }
 
-# ================= #
-# bar config
-# ================= #
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        set $NUM 2
+        bindsym h resize shrink width $NUM px or $NUM ppt
+        bindsym j resize grow height $NUM px or $NUM ppt
+        bindsym k resize shrink height $NUM px or $NUM ppt
+        bindsym l resize grow width $NUM px or $NUM ppt
+
+        bindsym Left resize shrink width $NUM px or $NUM ppt
+        bindsym Down resize grow height $NUM px or $NUM ppt
+        bindsym Up resize shrink height $NUM px or $NUM ppt
+        bindsym Right resize grow width $NUM px or $NUM ppt
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
 bar {
-    #font pango:  $font $font_size
-    #output $laptop
-	#tray_output $laptop
 	position top
-	separator_symbol "|"
-    status_command py3status --include ~/.config/i3/py3status -c ~/.config/i3/i3status.conf
+        separator_symbol "|"
+        status_command py3status --include ~/.config/i3/py3status -c ~/.config/i3/i3status.conf
 	colors {
 		separator #fae594
 	}
 }
-
-bindsym $mod+Escape exec  xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
-bindsym $mod+shift+Escape exec xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
-
-exec_always mongod --dbpath ~/.extras/mongodb/data
-
-#Spotify
-bindsym $mod+F6 exec pytify -n
-bindsym $mod+F5 exec pytify -p
-bindsym $mod+F7 exec pytify -pp
-
-### TODO
-# scratchpad ranger
-# bajar brillo hdmi o vga
-# detectar un monitor y colocarlo a la izquierda automatico
-# i3 blockear con background image
-# mpd music
